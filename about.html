@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소개 — KDSN87</title>
+    <meta name="description" content="KDSN87은 로또 번호 자동 추첨기와 저녁 메뉴 추천기를 제공하는 생활 편의 서비스입니다.">
+    <meta name="google-adsense-account" content="ca-pub-8205038203255502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205038203255502"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="contact.css">
+    <style>
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 40px 0;
+        }
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-b);
+            border-radius: 16px;
+            padding: 28px 24px;
+            backdrop-filter: blur(16px);
+            text-decoration: none;
+            display: block;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .service-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .service-icon { font-size: 40px; margin-bottom: 14px; display: block; }
+        .service-name { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+        .service-desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
+        .values { margin: 48px 0; }
+        .value-item { display: flex; gap: 18px; margin-bottom: 28px; align-items: flex-start; }
+        .value-num { font-size: 32px; font-weight: 900; color: var(--accent); min-width: 44px; line-height: 1; }
+        .value-text h3 { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+        .value-text p  { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+
+        .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+        .cta-btn {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.15s;
+        }
+        .cta-btn:hover { transform: translateY(-2px); }
+        .cta-primary { background: var(--accent); color: #fff; }
+        .cta-secondary { background: var(--surface); border: 1.5px solid var(--surface-b); color: var(--text); }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <div class="header-left">
+                <a href="index.html" class="back-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    홈으로
+                </a>
+            </div>
+            <nav class="site-nav">
+                <a href="index.html">🎱 로또</a>
+                <a href="menu.html">🍽️ 저녁 메뉴</a>
+            </nav>
+            <button id="theme-toggle" aria-label="테마 전환">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <section class="hero">
+                <p class="eyebrow">About KDSN87</p>
+                <h1>작지만 쓸모 있는<br><em>도구들</em></h1>
+                <p class="hero-sub">매주 로또를 사거나 저녁 메뉴로 고민하는 분들을 위해<br>빠르고 깔끔한 도구를 만들고 있습니다.</p>
+            </section>
+
+            <div class="services-grid">
+                <a href="index.html" class="service-card">
+                    <span class="service-icon">🎱</span>
+                    <div class="service-name">로또 6/45 번호 추첨기</div>
+                    <p class="service-desc">1부터 45까지 숫자 중 6개를 무작위로 추첨합니다. 한 번에 5회치 번호를 자동 생성하며, 공식 로또 6/45 색상 체계를 그대로 사용합니다.</p>
+                </a>
+                <a href="menu.html" class="service-card">
+                    <span class="service-icon">🍽️</span>
+                    <div class="service-name">오늘 저녁 뭐 먹지?</div>
+                    <p class="service-desc">한식·중식·일식·양식 29가지 메뉴 중 오늘 저녁을 랜덤 추천합니다. 카테고리 필터로 원하는 종류의 메뉴만 골라볼 수 있습니다.</p>
+                </a>
+            </div>
+
+            <section class="values">
+                <div class="value-item">
+                    <div class="value-num">01</div>
+                    <div class="value-text">
+                        <h3>빠른 결정을 돕습니다</h3>
+                        <p>로또 번호 고르기, 저녁 메뉴 고르기 — 사소하지만 막히면 시간이 걸리는 결정들을 즉시 해결해드립니다. 버튼 한 번으로 끝납니다.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">02</div>
+                    <div class="value-text">
+                        <h3>광고 없이도 쾌적한 경험</h3>
+                        <p>광고가 콘텐츠를 가리거나 방해하지 않도록 레이아웃을 설계했습니다. 도구 본연의 기능이 항상 화면 중앙에 위치합니다.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">03</div>
+                    <div class="value-text">
+                        <h3>모바일에서도 완전히 동작합니다</h3>
+                        <p>스마트폰, 태블릿, 데스크톱 어디서든 동일하게 동작하도록 반응형으로 제작되었습니다. 앱 설치 없이 브라우저만으로 사용 가능합니다.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">04</div>
+                    <div class="value-text">
+                        <h3>다크 모드를 기본으로 제공합니다</h3>
+                        <p>눈의 피로를 줄이는 다크 모드와 밝은 환경에 맞는 라이트 모드를 모두 지원합니다. 선택한 설정은 다음 방문에도 유지됩니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align:center; padding: 20px 0 8px;">
+                <p style="font-size:15px; color:var(--text-dim); margin-bottom: 28px;">제휴나 협업 제안이 있으시면 언제든 연락해 주세요.</p>
+                <div class="cta-row">
+                    <a href="contact.html" class="cta-btn cta-primary">제휴 문의하기</a>
+                    <a href="index.html"   class="cta-btn cta-secondary">🎱 로또 추첨하기</a>
+                    <a href="menu.html"    class="cta-btn cta-secondary">🍽️ 메뉴 추천받기</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 KDSN87 · <a href="index.html">로또 추첨기</a> · <a href="menu.html">저녁 메뉴</a> · <a href="contact.html">제휴 문의</a> · <a href="privacy.html">개인정보처리방침</a></p>
+        </footer>
+    </div>
+    <script>
+        const html = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        html.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+        toggle.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    </script>
+</body>
+</html>
