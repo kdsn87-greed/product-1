@@ -1,0 +1,616 @@
+/* ── Design tokens (Fortune — Gold/Amber) ──────────── */
+:root {
+    --ground:   #0D0A00;
+    --surface:  rgba(255,255,255,0.045);
+    --surface-b:rgba(255,255,255,0.09);
+    --text:     #E8ECF4;
+    --text-dim: rgba(232,236,244,0.42);
+    --accent:   #F59E0B;
+    --accent-g: rgba(245,158,11,0.22);
+    --radius:   18px;
+}
+
+[data-theme="light"] {
+    --ground:   #FFFBF0;
+    --surface:  rgba(255,255,255,0.82);
+    --surface-b:rgba(0,0,0,0.07);
+    --text:     #1A1000;
+    --text-dim: rgba(26,16,0,0.42);
+    --accent:   #D97706;
+    --accent-g: rgba(217,119,6,0.14);
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ──────────────────────────────────────────── */
+body {
+    font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic",
+                 "Nanum Gothic", "NanumGothic", sans-serif;
+    background: var(--ground);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background 0.4s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* ── Layout ────────────────────────────────────────── */
+.layout {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 72px;
+}
+
+/* ── Header ────────────────────────────────────────── */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0 0;
+}
+
+.brand { display: flex; align-items: center; gap: 11px; }
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #0D0A00;
+    font-size: 19px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text);
+}
+.brand-name span { color: var(--accent); }
+
+#theme-toggle {
+    background: var(--surface);
+    border: 1px solid var(--surface-b);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.25s, border-color 0.25s;
+}
+#theme-toggle:hover { background: var(--surface-b); }
+#theme-toggle svg { width: 17px; height: 17px; }
+
+[data-theme="dark"]  .icon-sun  { display: none; }
+[data-theme="light"] .icon-moon { display: none; }
+
+/* ── Main Nav ──────────────────────────────────────── */
+.main-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--surface-b);
+    margin-bottom: 8px;
+}
+
+.main-nav a {
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1.5px solid var(--surface-b);
+    transition: all 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+    padding: 60px 0 52px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(38px, 9vw, 58px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+h1 em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.hero-sub {
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+    margin-bottom: 40px;
+}
+
+/* ── Fortune Tool ──────────────────────────────────── */
+.fortune-tool { margin: 32px 0; }
+
+.date-inputs { margin-bottom: 0; }
+
+.date-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.date-row { display: flex; gap: 10px; }
+
+.date-row select {
+    flex: 1;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: 1.5px solid var(--surface-b);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+    font-family: inherit;
+}
+
+.date-row select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+#fortune-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #0D0A00;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 40px var(--accent-g);
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+}
+#fortune-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px var(--accent-g);
+}
+#fortune-btn:active { transform: scale(0.97); }
+
+/* ── Fortune Result ────────────────────────────────── */
+.fortune-date {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin: 28px 0 16px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.overall-card {
+    background: var(--surface);
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    animation: slideUp 0.4s ease forwards;
+}
+
+.overall-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+
+.overall-score {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.overall-bar-wrap {
+    height: 12px;
+    background: var(--surface-b);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 auto 16px;
+    max-width: 240px;
+}
+
+.overall-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #FCD34D);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 1s cubic-bezier(0.25,1,0.5,1);
+}
+
+.fortune-stars {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.fortune-message {
+    font-size: 15px;
+    color: var(--accent);
+    font-style: italic;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Category Bars ─────────────────────────────────── */
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 20px 0;
+    animation: slideUp 0.5s ease 0.1s both;
+}
+
+.category-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cat-emoji {
+    font-size: 20px;
+    width: 28px;
+    flex-shrink: 0;
+}
+
+.cat-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    width: 56px;
+    flex-shrink: 0;
+}
+
+.cat-bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: var(--surface-b);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cat-bar {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.cat-bar[data-cat="money"]  { --bar-color: #10B981; }
+.cat-bar[data-cat="love"]   { --bar-color: #F43F5E; }
+.cat-bar[data-cat="career"] { --bar-color: #3B82F6; }
+.cat-bar[data-cat="health"] { --bar-color: #22D3EE; }
+.cat-bar[data-cat="luck"]   { --bar-color: #F59E0B; }
+
+.cat-bar-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--bar-color, var(--accent));
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.25,1,0.5,1);
+}
+
+.cat-score {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-dim);
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* ── Lucky Items ───────────────────────────────────── */
+.lucky-section {
+    margin: 24px 0;
+    animation: slideUp 0.5s ease 0.2s both;
+}
+
+.lucky-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.lucky-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.lucky-card {
+    background: var(--surface);
+    border: 1.5px solid var(--surface-b);
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.lucky-card:hover { border-color: var(--accent); }
+
+.lucky-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.lucky-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.lucky-value {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+/* ── Retry button ──────────────────────────────────── */
+#retry-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 24px;
+    background: var(--surface);
+    color: var(--text-dim);
+    border: 1.5px solid var(--surface-b);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+#retry-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* ── Guide content ─────────────────────────────────── */
+.guide-section {
+    margin-top: 72px;
+    padding-top: 56px;
+    border-top: 1px solid var(--surface-b);
+}
+
+.guide-article {
+    margin-bottom: 56px;
+}
+
+.guide-article h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    letter-spacing: -0.01em;
+}
+
+.guide-article h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 28px 0 10px;
+}
+
+.guide-article p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+}
+
+.guide-article ul,
+.guide-article ol {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text-dim);
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.guide-article li { margin-bottom: 8px; }
+
+.guide-article strong { color: var(--text); font-weight: 700; }
+
+/* ── Zodiac grid ───────────────────────────────────── */
+.zodiac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.zodiac-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-b);
+    border-radius: 14px;
+    padding: 16px;
+    transition: border-color 0.2s;
+}
+
+.zodiac-card:hover { border-color: var(--accent); }
+
+.zodiac-animal {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.zodiac-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.zodiac-years {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.zodiac-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* ── FAQ ───────────────────────────────────────────── */
+.faq-section { margin-top: 48px; }
+
+.faq-section h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.faq-item {
+    border: 1px solid var(--surface-b);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.faq-item h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.faq-item p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding-top: 52px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+}
+
+.footer-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+}
+.footer-link:hover { text-decoration: underline; }
+
+/* ── Animations ────────────────────────────────────── */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes barFill {
+    from { width: 0%; }
+    to   { width: var(--target-width, 70%); }
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 480px) {
+    .date-row { gap: 6px; }
+    .date-row select { padding: 10px 6px; font-size: 14px; }
+    #fortune-btn { font-size: 15px; padding: 14px 24px; }
+    .overall-score { font-size: 40px; }
+    .lucky-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .lucky-card { padding: 12px 8px; }
+    .lucky-value { font-size: 13px; }
+    .cat-label { width: 46px; font-size: 12px; }
+    .zodiac-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .overall-card,
+    .categories,
+    .lucky-section,
+    .fortune-date {
+        animation: none;
+    }
+    .overall-bar,
+    .cat-bar-fill {
+        transition: none;
+    }
+}

@@ -96,6 +96,33 @@ header {
     color: var(--text);
 }
 
+/* ── Main site navigation ───────────────────────────── */
+.main-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--surface-b);
+    margin-bottom: 8px;
+}
+.main-nav a {
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1.5px solid var(--surface-b);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.main-nav a:hover, .main-nav a.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
 .site-link {
     display: flex;
     align-items: center;

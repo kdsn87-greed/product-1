@@ -73,6 +73,8 @@ header {
 .site-nav {
     display: flex;
     gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .site-nav a {
     padding: 7px 14px;
@@ -299,8 +301,7 @@ footer a:hover { color: var(--accent); }
 @media (max-width: 520px) {
     .field-row.two-col { grid-template-columns: 1fr; }
     .form-card { padding: 24px 18px; }
-    .site-nav a { display: none; }
-    .site-nav a:first-child { display: inline-flex; }
+    .site-nav { display: none; }
 }
 
 /* ── Reduced motion ─────────────────────────────────── */

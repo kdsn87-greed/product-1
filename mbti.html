@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 궁합 테스트 — 나와 맞는 유형 찾기</title>
+    <meta name="description" content="MBTI 궁합 테스트: 16가지 성격 유형으로 나와 상대방의 궁합 점수를 계산합니다. INTJ, INFP, ENFJ 등 모든 MBTI 조합의 궁합을 확인해보세요.">
+    <meta name="keywords" content="MBTI 궁합, MBTI 테스트, MBTI 성격유형, INTJ 궁합, INFP 궁합, ENFJ 궁합, MBTI 연애, 성격유형 테스트">
+    <meta name="google-adsense-account" content="ca-pub-8205038203255502">
+    <link rel="stylesheet" href="mbti.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205038203255502" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="layout">
+
+    <header>
+        <div class="brand">
+            <div class="brand-mark">M</div>
+            <div class="brand-name">MBTI <span>궁합</span></div>
+        </div>
+        <button id="theme-toggle" aria-label="테마 전환">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </header>
+
+    <nav class="main-nav">
+        <a href="index.html">🎱 로또</a>
+        <a href="menu.html">🍽️ 저녁메뉴</a>
+        <a href="mbti.html" class="active">🧠 MBTI</a>
+        <a href="salary.html">💰 연봉계산</a>
+        <a href="fortune.html">🔮 운세</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <p class="eyebrow">성격 유형 궁합 분석</p>
+            <h1>나와 맞는 <em>MBTI는?</em></h1>
+            <p class="hero-sub">16가지 유형 · 궁합 점수 · 관계 조언</p>
+        </section>
+
+        <div class="mbti-tool">
+            <div class="selector-panels">
+
+                <!-- Panel 1: My MBTI -->
+                <div class="selector-panel">
+                    <h3 class="panel-label">나의 MBTI</h3>
+                    <div class="type-grid">
+                        <button class="type-btn nt" data-type="INTJ" data-panel="mine">
+                            <span class="type-code">INTJ</span>
+                            <span class="type-name">전략가</span>
+                            <span class="type-emoji">🏰</span>
+                        </button>
+                        <button class="type-btn nt" data-type="INTP" data-panel="mine">
+                            <span class="type-code">INTP</span>
+                            <span class="type-name">논리술사</span>
+                            <span class="type-emoji">🔭</span>
+                        </button>
+                        <button class="type-btn nt" data-type="ENTJ" data-panel="mine">
+                            <span class="type-code">ENTJ</span>
+                            <span class="type-name">통솔자</span>
+                            <span class="type-emoji">👑</span>
+                        </button>
+                        <button class="type-btn nt" data-type="ENTP" data-panel="mine">
+                            <span class="type-code">ENTP</span>
+                            <span class="type-name">변론가</span>
+                            <span class="type-emoji">💡</span>
+                        </button>
+                        <button class="type-btn nf" data-type="INFJ" data-panel="mine">
+                            <span class="type-code">INFJ</span>
+                            <span class="type-name">옹호자</span>
+                            <span class="type-emoji">🌹</span>
+                        </button>
+                        <button class="type-btn nf" data-type="INFP" data-panel="mine">
+                            <span class="type-code">INFP</span>
+                            <span class="type-name">중재자</span>
+                            <span class="type-emoji">🎭</span>
+                        </button>
+                        <button class="type-btn nf" data-type="ENFJ" data-panel="mine">
+                            <span class="type-code">ENFJ</span>
+                            <span class="type-name">선도자</span>
+                            <span class="type-emoji">🌟</span>
+                        </button>
+                        <button class="type-btn nf" data-type="ENFP" data-panel="mine">
+                            <span class="type-code">ENFP</span>
+                            <span class="type-name">활동가</span>
+                            <span class="type-emoji">🦋</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ISTJ" data-panel="mine">
+                            <span class="type-code">ISTJ</span>
+                            <span class="type-name">현실주의자</span>
+                            <span class="type-emoji">📋</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ISFJ" data-panel="mine">
+                            <span class="type-code">ISFJ</span>
+                            <span class="type-name">수호자</span>
+                            <span class="type-emoji">🛡️</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ESTJ" data-panel="mine">
+                            <span class="type-code">ESTJ</span>
+                            <span class="type-name">경영자</span>
+                            <span class="type-emoji">⚖️</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ESFJ" data-panel="mine">
+                            <span class="type-code">ESFJ</span>
+                            <span class="type-name">집정관</span>
+                            <span class="type-emoji">🤝</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ISTP" data-panel="mine">
+                            <span class="type-code">ISTP</span>
+                            <span class="type-name">장인</span>
+                            <span class="type-emoji">🔧</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ISFP" data-panel="mine">
+                            <span class="type-code">ISFP</span>
+                            <span class="type-name">모험가</span>
+                            <span class="type-emoji">🎨</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ESTP" data-panel="mine">
+                            <span class="type-code">ESTP</span>
+                            <span class="type-name">사업가</span>
+                            <span class="type-emoji">🎯</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ESFP" data-panel="mine">
+                            <span class="type-code">ESFP</span>
+                            <span class="type-name">연예인</span>
+                            <span class="type-emoji">🎉</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Their MBTI -->
+                <div class="selector-panel">
+                    <h3 class="panel-label">상대방의 MBTI</h3>
+                    <div class="type-grid">
+                        <button class="type-btn nt" data-type="INTJ" data-panel="theirs">
+                            <span class="type-code">INTJ</span>
+                            <span class="type-name">전략가</span>
+                            <span class="type-emoji">🏰</span>
+                        </button>
+                        <button class="type-btn nt" data-type="INTP" data-panel="theirs">
+                            <span class="type-code">INTP</span>
+                            <span class="type-name">논리술사</span>
+                            <span class="type-emoji">🔭</span>
+                        </button>
+                        <button class="type-btn nt" data-type="ENTJ" data-panel="theirs">
+                            <span class="type-code">ENTJ</span>
+                            <span class="type-name">통솔자</span>
+                            <span class="type-emoji">👑</span>
+                        </button>
+                        <button class="type-btn nt" data-type="ENTP" data-panel="theirs">
+                            <span class="type-code">ENTP</span>
+                            <span class="type-name">변론가</span>
+                            <span class="type-emoji">💡</span>
+                        </button>
+                        <button class="type-btn nf" data-type="INFJ" data-panel="theirs">
+                            <span class="type-code">INFJ</span>
+                            <span class="type-name">옹호자</span>
+                            <span class="type-emoji">🌹</span>
+                        </button>
+                        <button class="type-btn nf" data-type="INFP" data-panel="theirs">
+                            <span class="type-code">INFP</span>
+                            <span class="type-name">중재자</span>
+                            <span class="type-emoji">🎭</span>
+                        </button>
+                        <button class="type-btn nf" data-type="ENFJ" data-panel="theirs">
+                            <span class="type-code">ENFJ</span>
+                            <span class="type-name">선도자</span>
+                            <span class="type-emoji">🌟</span>
+                        </button>
+                        <button class="type-btn nf" data-type="ENFP" data-panel="theirs">
+                            <span class="type-code">ENFP</span>
+                            <span class="type-name">활동가</span>
+                            <span class="type-emoji">🦋</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ISTJ" data-panel="theirs">
+                            <span class="type-code">ISTJ</span>
+                            <span class="type-name">현실주의자</span>
+                            <span class="type-emoji">📋</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ISFJ" data-panel="theirs">
+                            <span class="type-code">ISFJ</span>
+                            <span class="type-name">수호자</span>
+                            <span class="type-emoji">🛡️</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ESTJ" data-panel="theirs">
+                            <span class="type-code">ESTJ</span>
+                            <span class="type-name">경영자</span>
+                            <span class="type-emoji">⚖️</span>
+                        </button>
+                        <button class="type-btn sj" data-type="ESFJ" data-panel="theirs">
+                            <span class="type-code">ESFJ</span>
+                            <span class="type-name">집정관</span>
+                            <span class="type-emoji">🤝</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ISTP" data-panel="theirs">
+                            <span class="type-code">ISTP</span>
+                            <span class="type-name">장인</span>
+                            <span class="type-emoji">🔧</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ISFP" data-panel="theirs">
+                            <span class="type-code">ISFP</span>
+                            <span class="type-name">모험가</span>
+                            <span class="type-emoji">🎨</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ESTP" data-panel="theirs">
+                            <span class="type-code">ESTP</span>
+                            <span class="type-name">사업가</span>
+                            <span class="type-emoji">🎯</span>
+                        </button>
+                        <button class="type-btn sp" data-type="ESFP" data-panel="theirs">
+                            <span class="type-code">ESFP</span>
+                            <span class="type-name">연예인</span>
+                            <span class="type-emoji">🎉</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div><!-- /.selector-panels -->
+
+            <!-- Result card -->
+            <div id="result-card" class="result-card">
+                <div class="result-pair">
+                    <span id="r-mine" class="result-badge"></span>
+                    <span class="result-heart">💜</span>
+                    <span id="r-theirs" class="result-badge"></span>
+                </div>
+                <div class="result-score"><span id="r-score">--</span><span class="score-unit">%</span></div>
+                <div id="r-stars" class="star-rating"></div>
+                <div id="r-tier" class="score-tier"></div>
+                <p id="r-desc" class="result-desc"></p>
+                <div class="result-tips"><h4>관계 조언</h4><ul id="r-tips"></ul></div>
+                <button id="reset-btn">🔄 다시 선택</button>
+            </div>
+
+        </div><!-- /.mbti-tool -->
+
+    </main>
+
+    <!-- ── 가이드 콘텐츠 ── -->
+    <section class="guide-section">
+
+        <article class="guide-article">
+            <h2>MBTI란 무엇인가?</h2>
+
+            <h3>MBTI의 역사와 기원</h3>
+            <p>MBTI(Myers-Briggs Type Indicator)는 1943년 미국의 이사벨 브리그스 마이어스(Isabel Briggs Myers)와 그녀의 어머니 캐서린 쿡 브릭스(Katharine Cook Briggs)가 공동으로 개발한 성격 유형 검사 도구입니다. 두 사람은 심리학자 카를 구스타프 융(Carl Gustav Jung)이 1921년에 발표한 저서 《심리 유형(Psychological Types)》에 깊은 영감을 받아 이를 일반인도 쉽게 활용할 수 있는 실용적인 도구로 발전시켰습니다. 이사벨 마이어스는 정식 심리학 교육을 받지 않은 비전문가였지만, 제2차 세계대전 중 전쟁터로 떠난 남성들을 대신해 직장에 투입된 여성들이 자신에게 맞는 업무를 찾을 수 있도록 돕기 위해 수십 년간 연구를 거듭했습니다. 그 결과 탄생한 MBTI는 오늘날 전 세계에서 가장 널리 사용되는 성격 유형 검사 도구 중 하나가 되었습니다.</p>
+
+            <h3>카를 융의 심리 유형론</h3>
+            <p>MBTI의 이론적 토대는 스위스 정신과 의사 카를 융의 심리 유형론에서 비롯됩니다. 융은 인간의 심리적 기능이 크게 두 가지 태도(외향성과 내향성)와 네 가지 기본 기능(감각, 직관, 사고, 감정)으로 구성된다고 보았습니다. 외향적인 사람은 외부 세계와 타인에게서 에너지를 얻고, 내향적인 사람은 자신의 내면 세계에서 에너지를 충전합니다. 마이어스와 브릭스는 여기에 판단(J)과 인식(P)이라는 네 번째 차원을 추가하여 총 16가지 성격 유형이 도출되는 체계를 완성했습니다.</p>
+
+            <h3>4가지 이분법의 의미</h3>
+            <p>MBTI는 네 가지 이분법적 척도로 구성됩니다. 첫 번째는 <strong>외향(E) / 내향(I)</strong> 척도로, 에너지의 방향성을 나타냅니다. 외향형은 사람들과 어울리면서 에너지를 얻고 행동이 먼저인 반면, 내향형은 혼자만의 시간을 통해 재충전하며 생각을 먼저 정리하는 경향이 있습니다. 두 번째는 <strong>직관(N) / 감각(S)</strong> 척도로, 정보를 수집하는 방식의 차이입니다. 직관형은 가능성과 미래, 패턴과 연결고리에 주목하고, 감각형은 현재의 구체적인 사실과 세부 사항, 실제 경험에 집중합니다. 세 번째는 <strong>사고(T) / 감정(F)</strong> 척도로, 의사결정 방식의 차이입니다. 사고형은 논리와 객관적 분석을 바탕으로 결정을 내리고, 감정형은 사람과 가치, 조화를 중시하며 판단합니다. 네 번째는 <strong>판단(J) / 인식(P)</strong> 척도로, 외부 세계에 대한 생활 방식을 나타냅니다. 판단형은 계획을 세우고 결론을 내리는 것을 선호하며 체계적인 생활을 즐기는 반면, 인식형은 유연성과 개방성을 중시하며 즉흥적인 상황에서도 편안함을 느낍니다.</p>
+
+            <h3>16가지 성격 유형이 만들어지는 원리</h3>
+            <p>네 가지 이분법이 각각 두 가지 선택지를 가지므로, 2×2×2×2=16가지의 고유한 성격 유형이 만들어집니다. 예를 들어 INTJ는 내향(I), 직관(N), 사고(T), 판단(J)의 조합으로 전략적이고 독립적인 사고를 가진 '전략가' 유형입니다. ENFP는 외향(E), 직관(N), 감정(F), 인식(P)의 조합으로 열정적이고 창의적인 '활동가' 유형입니다. 각 유형은 단순히 4가지 특성의 합이 아니라 독특한 인지 기능의 순위 체계를 가지며, 이것이 각 유형의 고유한 강점과 약점, 대인관계 방식을 결정합니다.</p>
+
+            <h3>한국에서의 MBTI 열풍</h3>
+            <p>MBTI는 전 세계적으로 매년 수백만 명이 검사를 받을 만큼 보편적인 도구이지만, 특히 한국에서는 MZ세대를 중심으로 하나의 문화 현상으로 자리 잡았습니다. 소개팅 자리에서 "MBTI가 뭐예요?"라는 질문은 이제 자기소개의 필수 항목이 되었고, SNS 프로필에 MBTI를 표기하는 것은 자연스러운 일이 되었습니다. 직장에서도 팀 구성이나 업무 분배에 MBTI를 참고하거나, 회식 자리에서 각 유형의 특징을 이야기하며 공감대를 형성하는 모습을 흔히 볼 수 있습니다. 일부 기업의 채용 과정에서 MBTI를 기재하도록 요구하기도 하며, MBTI를 주제로 한 유튜브 콘텐츠, 웹툰, 밈은 수백만의 조회수를 기록하기도 합니다. 이렇듯 MBTI는 단순한 심리 검사를 넘어 한국 사회에서 자신을 표현하고 타인을 이해하는 하나의 언어로 기능하고 있습니다.</p>
+            <p>물론 MBTI를 지나치게 맹신하는 것에 대한 경계도 존재합니다. 심리학자들은 MBTI가 과학적 검증이 충분하지 않으며, 사람을 16가지 범주로 단순화하는 데 한계가 있다고 지적합니다. 특히 같은 사람도 시간이나 상황에 따라 다른 결과가 나올 수 있다는 점, 그리고 이분법적 분류가 실제 성격의 연속성을 제대로 반영하지 못한다는 점이 비판의 주요 근거입니다. 그럼에도 MBTI는 자신을 돌아보고 타인과의 차이를 이해하는 출발점으로서 긍정적인 역할을 한다는 점에서 여전히 많은 사람들에게 유용한 도구로 여겨집니다.</p>
+        </article>
+
+        <article class="guide-article">
+            <h2>4가지 기질 그룹 완벽 분석</h2>
+
+            <h3>NT — 분석가 그룹 (INTJ, INTP, ENTJ, ENTP)</h3>
+            <p>NT 그룹은 직관(N)과 사고(T)를 공유하는 네 가지 유형으로 구성됩니다. 이들은 논리적이고 전략적인 사고를 특징으로 하며, 지식의 탐구와 이론의 정립에서 깊은 만족을 얻습니다. <strong>INTJ(전략가)</strong>는 장기적 비전을 설계하고 이를 실현하기 위한 체계적인 계획을 수립하는 데 탁월합니다. 독립적이고 결단력 있으며, 비효율적인 것에 강한 불만을 느낍니다. <strong>INTP(논리술사)</strong>는 복잡한 이론과 아이디어를 분석하는 것을 즐기며, 모든 것에 의문을 품고 논리적 모순을 찾아내는 데 뛰어난 능력을 보입니다. <strong>ENTJ(통솔자)</strong>는 강력한 리더십과 카리스마로 조직을 이끄는 유형으로, 목표를 향해 매진하며 주변 사람들을 동기부여하는 능력이 탁월합니다. <strong>ENTP(변론가)</strong>는 아이디어의 달인으로, 기존 통념에 도전하고 창의적인 해결책을 제시하며 토론에서 진가를 발휘합니다. NT 그룹의 공통적인 강점은 분석력, 전략적 사고, 독립성이며, 약점으로는 감정 표현의 어려움과 타인의 감정에 대한 둔감함을 들 수 있습니다.</p>
+
+            <h3>NF — 외교관 그룹 (INFJ, INFP, ENFJ, ENFP)</h3>
+            <p>NF 그룹은 직관(N)과 감정(F)을 공유하는 이상주의자들입니다. 이들은 타인에 대한 깊은 공감 능력을 갖추고 있으며, 단순한 현실을 넘어 더 큰 의미와 목적을 추구합니다. <strong>INFJ(옹호자)</strong>는 강한 직관력과 통찰력으로 타인의 마음을 깊이 이해하며, 소수의 깊은 관계를 소중히 여기는 내향적 이상주의자입니다. 세상을 더 나은 곳으로 만들기 위한 사명감을 갖고 있습니다. <strong>INFP(중재자)</strong>는 풍부한 내면 세계와 강한 개인적 가치관을 지닌 몽상가로, 진정성 있는 자기표현과 의미 있는 연결을 추구합니다. <strong>ENFJ(선도자)</strong>는 타인을 돕고 이끄는 것에서 보람을 느끼는 카리스마 넘치는 리더로, 주변 사람들의 잠재력을 발견하고 성장을 도웁니다. <strong>ENFP(활동가)</strong>는 열정적이고 창의적이며, 새로운 가능성에 흥분하고 사람들과의 진정한 연결을 즐기는 자유로운 영혼입니다. NF 그룹은 높은 공감 능력과 이상주의, 언어 능력이 강점이지만, 지나친 자기희생과 현실적 문제 직면의 어려움이 약점이 될 수 있습니다.</p>
+
+            <h3>SJ — 관리자 그룹 (ISTJ, ISFJ, ESTJ, ESFJ)</h3>
+            <p>SJ 그룹은 감각(S)과 판단(J)을 공유하는 현실적이고 책임감 강한 유형들입니다. 이들은 안정성, 전통, 질서를 중시하며 사회의 든든한 기반을 이루는 역할을 합니다. <strong>ISTJ(현실주의자)</strong>는 성실하고 신뢰할 수 있는 유형으로, 규칙과 절차를 존중하며 맡은 일을 끝까지 완수하는 책임감이 강합니다. <strong>ISFJ(수호자)</strong>는 따뜻한 마음으로 주변 사람들을 돌보는 헌신적인 유형입니다. 세부 사항에 주의를 기울이고 조용히 봉사하며 자신이 속한 공동체를 지킵니다. <strong>ESTJ(경영자)</strong>는 질서와 체계를 통해 목표를 달성하는 강력한 관리자 유형으로, 명확한 기준과 원칙을 바탕으로 조직을 운영하는 데 탁월합니다. <strong>ESFJ(집정관)</strong>는 사람들과의 조화를 가장 중시하는 사교적인 유형으로, 타인의 필요를 민감하게 감지하고 적극적으로 도우려 합니다. SJ 그룹의 강점은 높은 신뢰성, 헌신, 체계적인 사고이며, 변화에 대한 저항과 지나친 규칙 집착이 약점이 될 수 있습니다.</p>
+
+            <h3>SP — 탐험가 그룹 (ISTP, ISFP, ESTP, ESFP)</h3>
+            <p>SP 그룹은 감각(S)과 인식(P)을 공유하는 자유롭고 실용적인 유형들입니다. 이들은 현재 순간에 집중하며 즉흥적이고 유연한 생활 방식을 즐깁니다. <strong>ISTP(장인)</strong>는 기계와 도구, 시스템의 작동 원리를 이해하는 데 탁월한 분석적 실용주의자입니다. 위기 상황에서 침착하게 문제를 해결하는 능력이 뛰어납니다. <strong>ISFP(모험가)</strong>는 예술적 감각과 미적 감수성을 지닌 조용한 자유인으로, 진정성 있는 자기표현과 현재의 아름다움을 소중히 여깁니다. <strong>ESTP(사업가)</strong>는 에너지 넘치고 대담한 행동파로, 이론보다 행동을 중시하며 즉각적인 결과를 내는 것에서 만족감을 얻습니다. 위험을 즐기고 도전적인 상황을 좋아합니다. <strong>ESFP(연예인)</strong>는 주변을 밝히는 존재감으로 모든 이를 즐겁게 하는 타고난 엔터테이너입니다. 현재를 최대한 즐기며 사람들과 어울리는 것을 사랑합니다. SP 그룹의 강점은 유연성, 실용성, 현재 집중력이며, 장기 계획의 어려움과 충동적 결정이 약점이 될 수 있습니다.</p>
+        </article>
+
+        <article class="guide-article">
+            <h2>MBTI로 알아보는 연애 스타일</h2>
+
+            <h3>NT 유형의 연애: 지적 교류와 독립적 사랑</h3>
+            <p>NT 유형(INTJ, INTP, ENTJ, ENTP)은 연애에서도 논리적이고 전략적인 면모를 보입니다. 이들은 상대방과의 지적 교류를 연애 관계의 핵심 요소로 여기며, 단순한 감정적 교감보다 깊이 있는 대화와 아이디어 공유를 통해 유대감을 쌓습니다. 또한 강한 독립성을 지니고 있어 파트너에게도 충분한 개인 공간과 자율성을 부여합니다. 다만 감정 표현에 익숙하지 않아 파트너가 NT의 깊은 애정을 느끼지 못하는 경우가 생길 수 있습니다. NT와 잘 맞는 관계를 위해서는 지적 자극을 주고, 과도한 감정적 요구를 자제하며, 그들의 독립성을 존중하는 것이 중요합니다.</p>
+
+            <h3>NF 유형의 연애: 깊은 감정 연결과 진정성</h3>
+            <p>NF 유형(INFJ, INFP, ENFJ, ENFP)은 연애에서 깊고 의미 있는 감정적 연결을 무엇보다 중시합니다. 이들은 단순한 표면적 만남보다 영혼의 단짝 같은 관계를 꿈꾸며, 진정성 없는 관계에는 쉽게 지치거나 실망합니다. 상대방의 감정을 예민하게 감지하고 공감하는 능력이 탁월하여 파트너가 깊은 이해를 받는다고 느끼게 합니다. 그러나 지나친 이상화로 인해 현실적인 파트너의 결함을 받아들이기 어려워하거나, 관계의 깊이에 지나치게 집착하는 경향도 있습니다. NF와의 연애에서는 진심 어린 감정 표현과 그들의 가치관을 존중하는 자세가 필수입니다.</p>
+
+            <h3>SJ 유형의 연애: 안정과 헌신의 사랑</h3>
+            <p>SJ 유형(ISTJ, ISFJ, ESTJ, ESFJ)은 안정적이고 헌신적인 연애 스타일로 유명합니다. 이들은 관계에 전적으로 헌신하며, 파트너에 대한 책임감과 신뢰를 연애의 기본으로 삼습니다. 기념일을 철저히 챙기고, 파트너의 필요를 세심하게 배려하며, 장기적인 관계를 진지하게 생각합니다. 다만 변화와 새로움에 다소 보수적인 면이 있어, 모험적이고 즉흥적인 연애를 선호하는 상대와는 갈등이 생길 수 있습니다. SJ와 행복한 연애를 위해서는 그들의 헌신에 충분한 감사를 표현하고, 안정적인 일상 속 소소한 즐거움을 함께 나누는 것이 좋습니다.</p>
+
+            <h3>SP 유형의 연애: 즉흥적 모험과 현재를 즐기는 사랑</h3>
+            <p>SP 유형(ISTP, ISFP, ESTP, ESFP)은 연애에서도 현재 순간에 충실하고 즉흥적인 모험을 즐깁니다. 이들은 계획된 데이트보다 갑작스러운 여행이나 새로운 경험을 더 좋아하며, 파트너와 생동감 넘치는 순간들을 함께 만들어 가는 것에서 큰 기쁨을 얻습니다. 자유롭고 구속받지 않는 관계를 선호하여 지나친 집착이나 통제를 받으면 쉽게 답답함을 느낍니다. 장기적인 계획이나 미래에 대한 진지한 논의에는 다소 어려움을 느낄 수 있지만, 그만큼 매 순간을 충실하게 살아가는 매력이 있습니다. SP와의 연애는 일상에 활력과 재미를 불어넣는 경험이 됩니다.</p>
+        </article>
+
+        <section class="faq-section">
+            <h2>자주 묻는 질문</h2>
+
+            <div class="faq-item">
+                <h3>MBTI 궁합 점수가 낮으면 연애가 불가능한가요?</h3>
+                <p>궁합 점수는 어디까지나 참고용입니다. 낮은 점수는 두 유형 사이에 차이가 많다는 것을 의미할 뿐, 연애가 불가능하다는 의미가 아닙니다. 실제 관계는 MBTI 유형보다 개인의 노력, 상호 이해, 소통 방식, 공유하는 가치관에 훨씬 더 크게 달려 있습니다. 오히려 차이가 많은 유형끼리 서로의 부족한 부분을 보완하며 더욱 풍요로운 관계를 만들어 나가는 경우도 많습니다. MBTI 궁합은 대화의 시작점으로 활용하되, 그것이 관계의 가능성을 결정짓는다고 생각하지 않는 것이 좋습니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>같은 MBTI끼리 궁합이 좋은가요?</h3>
+                <p>같은 유형끼리는 서로를 깊이 이해하고 공감하는 장점이 있습니다. 같은 에너지 충전 방식, 비슷한 의사결정 패턴, 유사한 생활 방식으로 인해 편안함을 느낄 수 있습니다. 그러나 동시에 두 사람이 같은 단점을 공유하는 문제도 있습니다. 예를 들어 두 사람 모두 NT 유형이라면 둘 다 감정 표현에 서툴러 관계가 차갑게 느껴질 수 있고, 두 사람 모두 P 유형이라면 아무도 계획을 세우지 않아 생활이 혼란스러워질 수 있습니다. 같은 유형이든 다른 유형이든, 핵심은 서로의 특성을 이해하고 존중하는 태도입니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>MBTI는 어떻게 정확하게 검사할 수 있나요?</h3>
+                <p>공식 MBTI 검사는 CPP(Consulting Psychologists Press)가 제공하는 유료 검사로, 자격을 갖춘 전문 기관이나 심리 상담사를 통해 받을 수 있습니다. 보다 신뢰도 높은 결과를 위해서는 공인된 전문 기관의 유료 검사를 권장합니다. 무료로 접할 수 있는 방법으로는 16Personalities.com이 가장 대표적이며, 한국어 서비스도 제공합니다. 검사 시에는 "이상적인 모습"이 아닌 "평소 자신의 실제 모습"을 기준으로 응답해야 더 정확한 결과를 얻을 수 있습니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>MBTI가 시간이 지나면 바뀔 수 있나요?</h3>
+                <p>핵심적인 성격 성향은 비교적 안정적이지만, 성장과 경험을 통해 변화할 수 있습니다. 특히 내향/외향 척도나 판단/인식 척도는 삶의 경험, 직업 환경, 인간관계에 따라 달라지는 경우가 있습니다. 연구에 따르면 같은 사람이 5주 후에 재검사를 받았을 때 약 50%가 다른 결과가 나왔다는 보고도 있습니다. 이는 MBTI가 고정된 정체성이 아니라 자신을 이해하는 하나의 렌즈라는 점을 시사합니다. 결과가 바뀌더라도 당황하지 말고, 현재 자신의 모습을 탐색하는 도구로 활용하세요.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>직장에서 MBTI를 활용하는 방법은?</h3>
+                <p>팀원들의 MBTI 유형을 파악하면 각자의 소통 방식을 이해하고 업무 분배에 참고할 수 있습니다. 예를 들어 NT 유형은 복잡한 문제 해결이나 전략 수립에 강하고, SJ 유형은 체계적인 실행과 관리에 뛰어납니다. NF 유형은 팀 분위기 조성과 멘토링에 적합하며, SP 유형은 유연한 대처가 필요한 현장 업무에서 빛을 발합니다. 다만 MBTI를 업무 평가나 채용의 주요 기준으로 삼는 것은 바람직하지 않습니다. 어디까지나 팀원을 이해하고 소통을 원활하게 하는 보조 도구로 활용하는 것이 적절합니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>MBTI 유형별로 최적의 직업이 있나요?</h3>
+                <p>각 MBTI 유형은 특정 직업 환경에서 더 큰 만족감과 성과를 보이는 경향이 있습니다. <strong>INTJ</strong>는 전략가, 과학자, 데이터 분석가, 건축가 등 복잡한 시스템을 다루는 직업에 적합합니다. <strong>ENFJ</strong>는 교사, 상담사, 인사 관리자, 코치 등 사람을 돕고 이끄는 직업에서 강점을 발휘합니다. <strong>ISTP</strong>는 엔지니어, 기술자, 외과의사, 조종사처럼 정밀한 기술과 침착함이 필요한 분야에 잘 맞습니다. <strong>ENFP</strong>는 마케터, 작가, 배우, 사회 활동가 등 창의성과 사람을 연결하는 직업에서 능력을 발휘합니다. 하지만 직업 선택은 MBTI 외에도 개인의 역량, 경험, 환경 등 다양한 요인이 복합적으로 작용하므로 MBTI는 참고 자료 중 하나로만 활용하세요.</p>
+            </div>
+
+        </section>
+
+    </section><!-- /.guide-section -->
+
+    <footer>
+        <p>© 2026 KDSN87 · MBTI 정보는 참고용이며 전문 심리 검사를 대체하지 않습니다</p>
+        <p style="margin-top:8px">
+            <a href="index.html" class="footer-link">로또</a> ·
+            <a href="menu.html" class="footer-link">저녁메뉴</a> ·
+            <a href="mbti.html" class="footer-link">MBTI</a> ·
+            <a href="salary.html" class="footer-link">연봉계산</a> ·
+            <a href="fortune.html" class="footer-link">운세</a> ·
+            <a href="contact.html" class="footer-link">제휴문의</a> ·
+            <a href="privacy.html" class="footer-link">개인정보처리방침</a>
+        </p>
+    </footer>
+
+</div><!-- /.layout -->
+
+<script>
+// ── Theme ────────────────────────────────────────────
+const html = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+const saved = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', saved);
+themeToggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+});
+
+// ── MBTI selection logic ─────────────────────────────
+let myType = null;
+let theirType = null;
+
+const TYPES = {
+  INTJ:{name:'전략가',emoji:'🏰',grp:'nt'}, INTP:{name:'논리술사',emoji:'🔭',grp:'nt'},
+  ENTJ:{name:'통솔자',emoji:'👑',grp:'nt'}, ENTP:{name:'변론가',emoji:'💡',grp:'nt'},
+  INFJ:{name:'옹호자',emoji:'🌹',grp:'nf'}, INFP:{name:'중재자',emoji:'🎭',grp:'nf'},
+  ENFJ:{name:'선도자',emoji:'🌟',grp:'nf'}, ENFP:{name:'활동가',emoji:'🦋',grp:'nf'},
+  ISTJ:{name:'현실주의자',emoji:'📋',grp:'sj'}, ISFJ:{name:'수호자',emoji:'🛡️',grp:'sj'},
+  ESTJ:{name:'경영자',emoji:'⚖️',grp:'sj'}, ESFJ:{name:'집정관',emoji:'🤝',grp:'sj'},
+  ISTP:{name:'장인',emoji:'🔧',grp:'sp'}, ISFP:{name:'모험가',emoji:'🎨',grp:'sp'},
+  ESTP:{name:'사업가',emoji:'🎯',grp:'sp'}, ESFP:{name:'연예인',emoji:'🎉',grp:'sp'},
+};
+
+document.querySelectorAll('.type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.dataset.panel;
+    const type = btn.dataset.type;
+    document.querySelectorAll(`.type-btn[data-panel="${panel}"]`).forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    if (panel === 'mine') myType = type;
+    else theirType = type;
+    if (myType && theirType) showResult();
+  });
+});
+
+function calcScore(a, b) {
+  if (a === b) return 85;
+  let score = 50;
+  if (a[0] === b[0]) score += 8;
+  if (a[1] === b[1]) score += 18; else score -= 8;
+  if (a[2] !== b[2]) score += 15; else score += 5;
+  if (a[3] !== b[3]) score += 14; else score += 4;
+  return Math.max(35, Math.min(94, score));
+}
+
+function getTier(score) {
+  if (score >= 90) return '천생연분 💕';
+  if (score >= 80) return '훌륭한 궁합 ✨';
+  if (score >= 70) return '좋은 궁합 👍';
+  if (score >= 55) return '보통 궁합 🤝';
+  return '도전적인 관계 💪';
+}
+
+const DESCS = {
+  'nt-nt': ['두 분석가 유형이 만났습니다. 지적 교류와 논리적 토론에서 깊은 유대감을 느낍니다. 서로의 독립성을 존중하면서도 비전을 공유하는 강력한 파트너십이 될 수 있습니다.', ['서로의 독립적인 시간을 존중하세요', '지적 토론을 통해 유대감을 키우세요', '감정 표현에 더 노력을 기울이세요']],
+  'nt-nf': ['분석가와 외교관의 만남입니다. 논리와 감성이 조화를 이루며 서로의 약점을 보완합니다. NT는 NF에게 체계와 전략을, NF는 NT에게 따뜻함과 공감을 가져다줍니다.', ['서로 다른 의사결정 방식을 존중하세요', '감정 대화 시간을 정기적으로 만드세요', '공통 관심사를 중심으로 유대감을 쌓으세요']],
+  'nt-sj': ['분석가와 관리자의 만남입니다. 목표 지향적이고 체계적인 두 유형이 만나 안정적인 관계를 만듭니다. 다만 NT의 혁신성과 SJ의 전통 존중 간 갈등이 생길 수 있습니다.', ['변화에 대한 서로의 태도를 이해하세요', '공동 목표를 설정하면 시너지가 납니다', 'NT는 안정감을, SJ는 새로운 시각을 배울 수 있어요']],
+  'nt-sp': ['분석가와 탐험가의 만남입니다. NT의 미래 지향성과 SP의 현재 집중이 흥미로운 긴장감을 만듭니다. 서로의 다른 시간 관점을 이해하면 풍요로운 관계가 됩니다.', ['계획과 즉흥성의 균형을 찾으세요', '서로의 장점에서 배우는 자세를 가지세요', 'SP의 실용성과 NT의 전략이 잘 결합될 수 있어요']],
+  'nf-nf': ['두 외교관 유형이 만났습니다. 감정적 깊이와 이상주의적 가치를 공유하며 강한 정서적 유대를 형성합니다. 다만 둘 다 현실적 문제 해결보다 감정에 집중하는 경향이 있습니다.', ['현실적인 결정도 함께 내리는 연습을 하세요', '서로의 감정 기복에 대한 이해가 필요합니다', '공통의 이상과 가치를 중심으로 관계를 쌓으세요']],
+  'nf-sj': ['외교관과 관리자의 만남입니다. NF의 이상주의와 SJ의 실용주의가 서로를 보완합니다. SJ의 안정감이 NF에게 든든한 기반을 제공하고, NF의 창의성이 SJ의 생활을 풍요롭게 합니다.', ['서로의 가치관 차이를 대화로 해소하세요', 'NF는 SJ의 헌신을, SJ는 NF의 따뜻함을 인정하세요', '일상의 소소한 즐거움을 함께 찾아보세요']],
+  'nf-sp': ['외교관과 탐험가의 만남입니다. 감성적이고 즉흥적인 두 유형이 만나 생동감 넘치는 관계를 만듭니다. 둘 다 개방적이고 유연하여 서로를 쉽게 받아들입니다.', ['계획 없는 즐거운 시간을 자주 가지세요', '감정을 솔직하게 표현하는 문화를 만드세요', 'SP의 현실감각이 NF의 이상에 균형을 줄 수 있어요']],
+  'sj-sj': ['두 관리자 유형이 만났습니다. 책임감, 안정성, 전통 존중이라는 공통 가치로 매우 안정적인 관계를 형성합니다. 다만 변화와 새로운 도전에 함께 열려 있어야 합니다.', ['함께 새로운 경험을 시도해보세요', '서로의 헌신과 노력을 자주 인정해주세요', '안정성과 함께 적당한 새로움도 추구하세요']],
+  'sj-sp': ['관리자와 탐험가의 만남입니다. SJ의 안정성과 SP의 유연성이 상호 보완적입니다. SP가 SJ의 생활에 활력을 불어넣고, SJ가 SP에게 든든한 안정감을 제공합니다.', ['서로의 생활 방식 차이를 존중하세요', '공동의 활동을 통해 유대감을 강화하세요', '변화와 안정의 균형점을 함께 찾아가세요']],
+  'sp-sp': ['두 탐험가 유형이 만났습니다. 현재를 즐기고 즉흥적인 모험을 추구하는 두 사람이 만나 에너지 넘치는 관계를 만듭니다. 다만 장기 계획과 안정성에 대한 논의가 필요합니다.', ['미래에 대한 계획도 함께 세워보세요', '서로의 자유를 존중하면서 유대감도 키우세요', '일상에 작은 모험을 함께 즐기세요']],
+};
+
+function getDesc(a, b) {
+  const grps = [TYPES[a].grp, TYPES[b].grp].sort();
+  const key = grps.join('-');
+  return DESCS[key] || ['두 유형이 만나 독특한 관계를 만듭니다. 서로의 차이를 이해하고 존중하면 훌륭한 파트너십이 될 수 있습니다.', ['서로의 차이를 강점으로 바라보세요', '솔직한 대화를 통해 이해를 높이세요', '공통점을 찾아 유대감을 쌓아가세요']];
+}
+
+function showResult() {
+  const score = calcScore(myType, theirType);
+  const tier = getTier(score);
+  const stars = Math.round(score / 20);
+  const [desc, tips] = getDesc(myType, theirType);
+
+  document.getElementById('r-mine').textContent = myType + ' ' + TYPES[myType].emoji;
+  document.getElementById('r-theirs').textContent = theirType + ' ' + TYPES[theirType].emoji;
+  document.getElementById('r-score').textContent = score;
+  document.getElementById('r-tier').textContent = tier;
+  document.getElementById('r-stars').textContent = '⭐'.repeat(Math.min(stars, 5));
+  document.getElementById('r-desc').textContent = desc;
+  const tipsList = document.getElementById('r-tips');
+  tipsList.innerHTML = tips.map(t => `<li>${t}</li>`).join('');
+
+  const card = document.getElementById('result-card');
+  card.style.display = 'block';
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  myType = null; theirType = null;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('result-card').style.display = 'none';
+});
+</script>
+
+</body>
+</html>
