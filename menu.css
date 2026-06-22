@@ -368,6 +368,35 @@ h1 em {
 .chip-name  { font-size: 13px; font-weight: 700; color: var(--text); }
 .chip-cat   { font-size: 11px; color: var(--text-dim); margin-top: 3px; }
 
+/* ── Comments ───────────────────────────────────────── */
+.comments-wrap {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--surface-b);
+}
+
+.comments-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.comments-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.comments-sub {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+#disqus_thread {
+    min-height: 200px;
+}
+
 /* ── Footer ─────────────────────────────────────────── */
 footer {
     text-align: center;

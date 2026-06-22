@@ -57,11 +57,34 @@
             </section>
         </main>
 
+        <section class="comments-wrap">
+            <div class="comments-header">
+                <span class="comments-title">💬 댓글</span>
+                <span class="comments-sub">번호 생성 후기나 당첨 소식을 나눠보세요!</span>
+            </div>
+            <div id="disqus_thread"></div>
+        </section>
+
         <footer>
             <p>번호는 무작위로 생성됩니다 · 당첨을 보장하지 않습니다 · <a href="contact.html" class="footer-link">제휴 문의</a></p>
         </footer>
     </div>
 
     <script src="main.js"></script>
+    <script>
+        var PAGE_URL        = 'https://kdsn87-greed.github.io/product-1/';
+        var PAGE_IDENTIFIER = 'lotto-index';
+
+        var disqus_config = function () {
+            this.page.url        = PAGE_URL;
+            this.page.identifier = PAGE_IDENTIFIER;
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://YOUR_DISQUS_SHORTNAME.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 </body>
 </html>
