@@ -96,6 +96,28 @@ header {
     color: var(--text);
 }
 
+.site-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1.5px solid var(--surface-b);
+    background: var(--surface);
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.site-link:hover {
+    background: var(--surface-b);
+    color: var(--text);
+    border-color: var(--accent);
+}
+
 #theme-toggle {
     background: var(--surface);
     border: 1px solid var(--surface-b);
