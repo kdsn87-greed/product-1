@@ -356,6 +356,12 @@ footer {
     color: var(--text-dim);
     letter-spacing: 0.03em;
 }
+.footer-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+}
+.footer-link:hover { text-decoration: underline; }
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 480px) {
