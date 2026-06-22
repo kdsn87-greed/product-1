@@ -348,6 +348,124 @@ h1 em {
     flex-shrink: 0;
 }
 
+/* ── Guide content ─────────────────────────────────── */
+.guide-section {
+    margin-top: 72px;
+    padding-top: 56px;
+    border-top: 1px solid var(--surface-b);
+}
+
+.guide-article {
+    margin-bottom: 56px;
+}
+
+.guide-article h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    letter-spacing: -0.01em;
+}
+
+.guide-article h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 28px 0 10px;
+}
+
+.guide-article p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+}
+
+.guide-article ul, .guide-article ol {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text-dim);
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.guide-article li { margin-bottom: 8px; }
+
+.guide-article strong { color: var(--text); font-weight: 700; }
+
+.guide-article code {
+    background: var(--surface-b);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: monospace;
+}
+
+.table-wrap { overflow-x: auto; margin: 16px 0 20px; }
+
+.odds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 480px;
+}
+
+.odds-table th, .odds-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--surface-b);
+    text-align: left;
+    line-height: 1.5;
+}
+
+.odds-table th {
+    background: var(--surface);
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.odds-table td { color: var(--text-dim); }
+.odds-table tbody tr:hover { background: var(--surface); }
+
+/* FAQ */
+.faq-section { margin-top: 48px; }
+
+.faq-section h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+}
+
+.faq-item {
+    border: 1px solid var(--surface-b);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.faq-item h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.faq-item p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin: 0;
+}
+
 /* ── Comments ──────────────────────────────────────── */
 .comments-wrap {
     margin-top: 64px;
