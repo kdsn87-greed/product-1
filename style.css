@@ -1,172 +1,354 @@
+/* ── Design tokens ─────────────────────────────────── */
 :root {
-    --bg: #f0f2f5;
-    --card-bg: #ffffff;
-    --text: #333333;
-    --subtext: #666666;
-    --border: #e0e0e0;
-    --btn-bg: #4CAF50;
-    --btn-hover: #45a049;
-    --count-active-bg: #4CAF50;
-    --count-active-text: #ffffff;
-    --count-idle-bg: #f0f2f5;
-    --count-idle-text: #555555;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --ball-shadow: rgba(0, 0, 0, 0.2);
-    --toggle-bg: #e0e0e0;
-    --toggle-text: #333;
+    --ground:   #090C18;
+    --surface:  rgba(255,255,255,0.045);
+    --surface-b:rgba(255,255,255,0.09);
+    --text:     #E8ECF4;
+    --text-dim: rgba(232,236,244,0.42);
+    --accent:   #FBC400;
+    --accent-g: rgba(251,196,0,0.22);
+    --radius:   18px;
+
+    --b-yellow: #FBC400;
+    --b-blue:   #069DDC;
+    --b-red:    #EF4444;
+    --b-gray:   #9CA3AF;
+    --b-green:  #84C23B;
 }
 
-[data-theme="dark"] {
-    --bg: #1a1a2e;
-    --card-bg: #16213e;
-    --text: #e0e0e0;
-    --subtext: #aaaaaa;
-    --border: #2a2a4e;
-    --btn-bg: #4CAF50;
-    --btn-hover: #45a049;
-    --count-active-bg: #4CAF50;
-    --count-active-text: #ffffff;
-    --count-idle-bg: #0f3460;
-    --count-idle-text: #aaaaaa;
-    --shadow: rgba(0, 0, 0, 0.4);
-    --ball-shadow: rgba(0, 0, 0, 0.5);
-    --toggle-bg: #0f3460;
-    --toggle-text: #e0e0e0;
+[data-theme="light"] {
+    --ground:   #F0F2F8;
+    --surface:  rgba(255,255,255,0.82);
+    --surface-b:rgba(0,0,0,0.07);
+    --text:     #0A0E1A;
+    --text-dim: rgba(10,14,26,0.42);
+    --accent:   #D9A800;
+    --accent-g: rgba(217,168,0,0.14);
 }
 
-* {
-    box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Base ──────────────────────────────────────────── */
 body {
-    background-color: var(--bg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic",
+                 "Nanum Gothic", "NanumGothic", sans-serif;
+    background: var(--ground);
+    color: var(--text);
     min-height: 100vh;
-    margin: 0;
+    transition: background 0.4s, color 0.3s;
+    overflow-x: hidden;
 }
+
+/* ── Starfield canvas ──────────────────────────────── */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+[data-theme="light"] #bg-canvas { opacity: 0; }
+
+/* ── Layout ────────────────────────────────────────── */
+.layout {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 72px;
+}
+
+/* ── Header ────────────────────────────────────────── */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0 0;
+}
+
+.brand { display: flex; align-items: center; gap: 11px; }
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #0A0E1A;
+    font-size: 19px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text);
+}
+.brand-name span { color: var(--accent); }
 
 #theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--toggle-bg);
-    color: var(--toggle-text);
-    border: none;
-    border-radius: 50px;
-    padding: 8px 14px;
-    font-size: 18px;
+    background: var(--surface);
+    border: 1px solid var(--surface-b);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px var(--shadow);
-    z-index: 100;
+    color: var(--text);
+    transition: background 0.25s, border-color 0.25s;
+}
+#theme-toggle:hover { background: var(--surface-b); }
+#theme-toggle svg { width: 17px; height: 17px; }
+
+[data-theme="dark"]  .icon-sun  { display: none; }
+[data-theme="light"] .icon-moon { display: none; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+    padding: 60px 0 52px;
+    text-align: center;
 }
 
-[data-theme="light"] #theme-toggle .icon-moon { display: none; }
-[data-theme="dark"]  #theme-toggle .icon-sun  { display: none; }
-
-.container {
-    text-align: center;
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 6px 24px var(--shadow);
-    width: 340px;
+.eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: clamp(38px, 9vw, 58px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
     color: var(--text);
-    margin: 0 0 28px;
+    margin-bottom: 16px;
+}
+h1 em {
+    font-style: normal;
+    color: var(--accent);
 }
 
-/* 추첨 개수 선택 */
-.count-selector {
-    margin-bottom: 28px;
-}
-
-.count-label {
-    display: block;
-    font-size: 13px;
-    color: var(--subtext);
-    margin-bottom: 10px;
-}
-
-.count-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.count-btn {
-    padding: 8px 24px;
-    border-radius: 8px;
-    border: 2px solid var(--border);
-    background-color: var(--count-idle-bg);
-    color: var(--count-idle-text);
+.hero-sub {
     font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+    margin-bottom: 40px;
 }
 
-.count-btn.active {
-    background-color: var(--count-active-bg);
-    color: var(--count-active-text);
-    border-color: var(--count-active-bg);
-}
-
-/* 번호 공 */
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    min-height: 50px;
-    margin-bottom: 28px;
-}
-
-.lotto-number {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 3px 6px var(--ball-shadow);
-    animation: popIn 0.3s ease backwards;
-}
-
-/* 번호 구간별 색상 */
-.lotto-number.range-1  { background: linear-gradient(135deg, #f9c74f, #f3722c); }
-.lotto-number.range-2  { background: linear-gradient(135deg, #90be6d, #43aa8b); }
-.lotto-number.range-3  { background: linear-gradient(135deg, #4cc9f0, #4361ee); }
-.lotto-number.range-4  { background: linear-gradient(135deg, #f72585, #b5179e); }
-.lotto-number.range-5  { background: linear-gradient(135deg, #adb5bd, #6c757d); }
-
-@keyframes popIn {
-    from { transform: scale(0); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
-}
-
+/* CTA button */
 #generate-btn {
-    background-color: var(--btn-bg);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+    display: inline-block;
+    background: var(--accent);
+    color: #0A0E1A;
     border: none;
-    border-radius: 8px;
-    padding: 12px 28px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    box-shadow: 0 3px 8px var(--ball-shadow);
-    width: 100%;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 40px var(--accent-g), 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.15s, box-shadow 0.2s;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+#generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 56px var(--accent-g), 0 8px 24px rgba(0,0,0,0.3);
+    animation: none;
+}
+#generate-btn:active { transform: scale(0.97); animation: none; }
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 40px var(--accent-g), 0 4px 16px rgba(0,0,0,0.25); }
+    50%       { box-shadow: 0 0 64px var(--accent-g), 0 4px 16px rgba(0,0,0,0.25); }
 }
 
-#generate-btn:hover  { background-color: var(--btn-hover); }
-#generate-btn:active { transform: scale(0.97); }
+.btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    animation: spin-slow 5s linear infinite;
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+/* ── Results section ───────────────────────────────── */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Placeholder */
+.results-placeholder {
+    text-align: center;
+    padding: 52px 0 40px;
+    color: var(--text-dim);
+    font-size: 14px;
+}
+.ph-balls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.ph-balls span {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px dashed var(--surface-b);
+    display: block;
+}
+
+/* ── Round rows ────────────────────────────────────── */
+.round-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--surface-b);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 0;
+    animation: slideUp 0.35s ease forwards;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.round-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    min-width: 24px;
+    text-align: center;
+}
+
+.balls-row {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+/* ── Lottery balls ─────────────────────────────────── */
+.ball {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    transform: scale(0);
+    animation: popBall 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+@keyframes popBall {
+    to { transform: scale(1); }
+}
+
+/* Shine highlight */
+.ball::before {
+    content: '';
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    width: 32%;
+    height: 22%;
+    background: rgba(255,255,255,0.48);
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+/* Ball colors — authentic Korean 6/45 color scheme */
+.ball.yellow { background: radial-gradient(circle at 38% 35%, #FFE066, var(--b-yellow) 70%); }
+.ball.blue   { background: radial-gradient(circle at 38% 35%, #62CFFF, var(--b-blue)   70%); }
+.ball.red    { background: radial-gradient(circle at 38% 35%, #FF9090, var(--b-red)    70%); }
+.ball.gray   { background: radial-gradient(circle at 38% 35%, #D1D5DB, var(--b-gray)   70%); }
+.ball.green  { background: radial-gradient(circle at 38% 35%, #B8E06A, var(--b-green)  70%); }
+
+/* Dark mode glows — the key aesthetic moment */
+[data-theme="dark"] .ball.yellow { box-shadow: 0 0 20px rgba(251,196,0,0.6),   0 3px 8px rgba(0,0,0,0.5); }
+[data-theme="dark"] .ball.blue   { box-shadow: 0 0 20px rgba(6,157,220,0.6),   0 3px 8px rgba(0,0,0,0.5); }
+[data-theme="dark"] .ball.red    { box-shadow: 0 0 20px rgba(239,68,68,0.6),   0 3px 8px rgba(0,0,0,0.5); }
+[data-theme="dark"] .ball.gray   { box-shadow: 0 0 16px rgba(156,163,175,0.5), 0 3px 8px rgba(0,0,0,0.5); }
+[data-theme="dark"] .ball.green  { box-shadow: 0 0 20px rgba(132,194,59,0.6),  0 3px 8px rgba(0,0,0,0.5); }
+
+[data-theme="light"] .ball       { box-shadow: 0 3px 10px rgba(0,0,0,0.18); }
+
+/* ── Color legend ──────────────────────────────────── */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 20px 0 4px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease 0.5s forwards;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding-top: 52px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 480px) {
+    .ball { width: 40px; height: 40px; font-size: 13px; }
+    .balls-row { gap: 5px; }
+    .round-row { padding: 14px 14px; gap: 10px; }
+    .btn-inner { padding: 15px 30px; }
+}
+
+/* ── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .ball, .round-row, .legend, .btn-icon, #generate-btn {
+        animation: none;
+    }
+    .ball { transform: scale(1); }
+    .round-row { opacity: 1; }
+    .legend { opacity: 1; }
+}
