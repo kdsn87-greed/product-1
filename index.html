@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="theme-toggle" aria-label="테마 전환">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
     <div class="container">
-        <h1>로또 번호 추첨기</h1>
+        <h1>🎱 로또 번호 추첨기</h1>
+
+        <div class="count-selector">
+            <span class="count-label">추첨 개수</span>
+            <div class="count-buttons">
+                <button class="count-btn active" data-count="5">5개</button>
+                <button class="count-btn" data-count="6">6개</button>
+            </div>
+        </div>
+
         <div class="lotto-numbers"></div>
+
         <button id="generate-btn">번호 생성</button>
     </div>
     <script src="main.js"></script>
